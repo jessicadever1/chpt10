@@ -28,12 +28,39 @@ Compare the user's guess with the secret number.
 Display a success message if the guess is correct, 
 otherwise display a failure message.
 --------------------Phase 2----------------------------*/
+
+/*---------------------Phase 3--------------------------
+The program should be updated to...
+
+Give the user four chances to guess the number.
+Continue to display the success or failure messages 
+as in phase 2
+
+-----------------------Phase 3------------------------*/
+
 int secretNum = 42;
-if (Int32.Parse(input) == secretNum)
+
+for (int numOfTries = 0; numOfTries < 4; numOfTries++)
 {
-    Console.WriteLine("You guessed the number I was thinking of!");
+    if (Int32.Parse(input) == secretNum)
+    {
+        Console.WriteLine("You guessed the number I was thinking of!");
+        return;
+    }
+    else if (Int32.Parse(input) != secretNum && numOfTries == 3)
+    {
+        Console.WriteLine("Nice try. But now you owe me your firstborn.");
+    }
+    else if (Int32.Parse(input) != secretNum)
+    {
+        Console.WriteLine("That was a great guess, but it wasn't the number I was thinking of!");
+        Console.Write("You have used ");
+        int counter = numOfTries + 1;
+        Console.Write(counter);
+        Console.WriteLine(" of 4 tries. You may try again now.");
+        input = Console.ReadLine();
+    }
+
 }
-else
-{
-    Console.WriteLine("That was a great guess, but it wasn't the number I was thinking of!");
-}
+
+
