@@ -38,29 +38,58 @@ as in phase 2
 
 -----------------------Phase 3------------------------*/
 
-int secretNum = 42;
+/*---------------------Phase 4--------------------------
+The program should be updated to...
 
-for (int numOfTries = 0; numOfTries < 4; numOfTries++)
+Display the number of the user's current guess in 
+the prompt. For example, if the user has already guessed
+one time, the prommpt should say something like Your 
+guess (2)>.
+End the loop early if the user guesses the correct number.
+----------------------Phase 4---------------------------*/
+
+Random rnd = new Random();
+int secretNum = rnd.Next(1, 101);
+
+for (int numOfTries = 4; numOfTries > 0; numOfTries--)
 {
     if (Int32.Parse(input) == secretNum)
     {
         Console.WriteLine("You guessed the number I was thinking of!");
         return;
     }
-    else if (Int32.Parse(input) != secretNum && numOfTries == 3)
+    else if (Int32.Parse(input) != secretNum && numOfTries == 1)
     {
         Console.WriteLine("Nice try. But now you owe me your firstborn.");
+    }
+    else if (Int32.Parse(input) != secretNum && numOfTries == 2)
+    {
+        Console.WriteLine("That was a great guess, but it wasn't the number I was thinking of!");
+        Console.Write("You have ");
+        //int counter = 3;
+        Console.Write(numOfTries - 1);
+        Console.WriteLine(" try left. You may try again now.");
+        input = Console.ReadLine();
     }
     else if (Int32.Parse(input) != secretNum)
     {
         Console.WriteLine("That was a great guess, but it wasn't the number I was thinking of!");
-        Console.Write("You have used ");
-        int counter = numOfTries + 1;
-        Console.Write(counter);
-        Console.WriteLine(" of 4 tries. You may try again now.");
+        Console.Write("You have ");
+        //int counter = 3;
+        Console.Write(numOfTries - 1);
+        Console.WriteLine(" tries left. You may try again now.");
         input = Console.ReadLine();
     }
 
 }
 
+
+/*--------------------Phase 5---------------------------
+The program should be updated to...
+
+Use a random number between 1 and 100 instead of a 
+hard-coded number.
+The prompt should display the number of guesses the 
+user has left.
+---------------------Phase 5---------------------------*/
 
