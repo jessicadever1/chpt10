@@ -1,0 +1,16 @@
+C:\Users\jessi\workspace\chpt10\bin\Debug\net5.0\chpt10.exe
+C:\Users\jessi\workspace\chpt10\bin\Debug\net5.0\chpt10.deps.json
+C:\Users\jessi\workspace\chpt10\bin\Debug\net5.0\chpt10.runtimeconfig.json
+C:\Users\jessi\workspace\chpt10\bin\Debug\net5.0\chpt10.runtimeconfig.dev.json
+C:\Users\jessi\workspace\chpt10\bin\Debug\net5.0\chpt10.dll
+C:\Users\jessi\workspace\chpt10\bin\Debug\net5.0\ref\chpt10.dll
+C:\Users\jessi\workspace\chpt10\bin\Debug\net5.0\chpt10.pdb
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.csprojAssemblyReference.cache
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.AssemblyInfoInputs.cache
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.AssemblyInfo.cs
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.csproj.CoreCompileInputs.cache
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.dll
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\ref\chpt10.dll
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.pdb
+C:\Users\jessi\workspace\chpt10\obj\Debug\net5.0\chpt10.genruntimeconfig.cache
