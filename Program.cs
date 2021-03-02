@@ -1,5 +1,93 @@
 ﻿using System;
 
+Console.WriteLine("Welcome to my game! Would you like to play on Easy, Medium, or Hard mode?");
+string difficultyLevel = Console.ReadLine().ToLower();
+
+while (difficultyLevel == "easy")
+{
+    Console.WriteLine("Okay! Easy mode, it is!");
+    PlayGame();
+    return;
+}
+while (difficultyLevel == "medium")
+{
+    Console.WriteLine("Okay! Medium mode, it is!");
+    PlayGame();
+    return;
+}
+while (difficultyLevel == "hard")
+{
+    Console.WriteLine("Okay! Hard mode, it is!");
+    PlayGame();
+    return;
+}
+while (difficultyLevel != "easy" || difficultyLevel != "medium" || difficultyLevel != "hard")
+{
+    Console.WriteLine("That was not an option. You're not invited anymore.");
+    return;
+}
+
+
+void PlayGame()
+{
+    Console.WriteLine("Can you guess the number I'm thinking of?");
+    Console.Write("Your best guess: ");
+
+    Random rnd = new Random();
+    int secretNum = rnd.Next(1, 101);
+    string Input = Console.ReadLine();
+
+    for (int numOfTries = 4; numOfTries > 0; numOfTries--)
+    {
+        if (Int32.Parse(Input) == secretNum)
+        {
+            Console.WriteLine("You guessed the number I was thinking of!");
+            return;
+        }
+        else if (Int32.Parse(Input) != secretNum && numOfTries == 1)
+        {
+            Console.WriteLine("Nice try. But now you owe me your firstborn.");
+        }
+        else if (Int32.Parse(Input) > secretNum && numOfTries == 2)
+        {
+            Console.WriteLine("That was a great guess, but it was too high!");
+            Console.Write("You have ");
+            //int counter = 3;
+            Console.Write(numOfTries - 1);
+            Console.WriteLine(" try left. You may try again now.");
+            Input = Console.ReadLine();
+        }
+        else if (Int32.Parse(Input) > secretNum)
+        {
+            Console.WriteLine("That was a great guess, but it was too high!");
+            Console.Write("You have ");
+            //int counter = 3;
+            Console.Write(numOfTries - 1);
+            Console.WriteLine(" tries left. You may try again now.");
+            Input = Console.ReadLine();
+        }
+        else if (Int32.Parse(Input) < secretNum && numOfTries == 2)
+        {
+            Console.WriteLine("That was a great guess, but it was too low!");
+            Console.Write("You have ");
+            //int counter = 3;
+            Console.Write(numOfTries - 1);
+            Console.WriteLine(" try left. You may try again now.");
+            Input = Console.ReadLine();
+        }
+        else if (Int32.Parse(Input) < secretNum)
+        {
+            Console.WriteLine("That was a great guess, but it was too low!");
+            Console.Write("You have ");
+            //int counter = 3;
+            Console.Write(numOfTries - 1);
+            Console.WriteLine(" tries left. You may try again now.");
+            Input = Console.ReadLine();
+        }
+    }
+}
+
+
 /* ------------------------Phase 1-----------------------------------
 The program should...
 
@@ -9,13 +97,6 @@ Display a prompt for the user's guess.
 Take the user's guess as input and save it as a variable.
 Display the user's guess back to the screen.
 ----------------------------Phase 1----------------------------------*/
-
-Console.WriteLine("Hey there, you! Can you guess the number I'm thinking of?");
-Console.Write("Your best guess: ");
-string input = Console.ReadLine();
-//Console.Write(input);
-//Console.WriteLine(" was a great guess!");
-
 
 /* ------------------Phase 2-----------------------------
 The program should be updated to...
@@ -48,58 +129,6 @@ guess (2)>.
 End the loop early if the user guesses the correct number.
 ----------------------Phase 4---------------------------*/
 
-Random rnd = new Random();
-int secretNum = rnd.Next(1, 101);
-
-for (int numOfTries = 4; numOfTries > 0; numOfTries--)
-{
-    if (Int32.Parse(input) == secretNum)
-    {
-        Console.WriteLine("You guessed the number I was thinking of!");
-        return;
-    }
-    else if (Int32.Parse(input) != secretNum && numOfTries == 1)
-    {
-        Console.WriteLine("Nice try. But now you owe me your firstborn.");
-    }
-    else if (Int32.Parse(input) > secretNum && numOfTries == 2)
-    {
-        Console.WriteLine("That was a great guess, but it was too high!");
-        Console.Write("You have ");
-        //int counter = 3;
-        Console.Write(numOfTries - 1);
-        Console.WriteLine(" try left. You may try again now.");
-        input = Console.ReadLine();
-    }
-    else if (Int32.Parse(input) > secretNum)
-    {
-        Console.WriteLine("That was a great guess, but it was too high!");
-        Console.Write("You have ");
-        //int counter = 3;
-        Console.Write(numOfTries - 1);
-        Console.WriteLine(" tries left. You may try again now.");
-        input = Console.ReadLine();
-    }
-    else if (Int32.Parse(input) < secretNum && numOfTries == 2)
-    {
-        Console.WriteLine("That was a great guess, but it was too low!");
-        Console.Write("You have ");
-        //int counter = 3;
-        Console.Write(numOfTries - 1);
-        Console.WriteLine(" try left. You may try again now.");
-        input = Console.ReadLine();
-    }
-    else if (Int32.Parse(input) < secretNum)
-    {
-        Console.WriteLine("That was a great guess, but it was too low!");
-        Console.Write("You have ");
-        //int counter = 3;
-        Console.Write(numOfTries - 1);
-        Console.WriteLine(" tries left. You may try again now.");
-        input = Console.ReadLine();
-    }
-}
-
 
 /*--------------------Phase 5---------------------------
 The program should be updated to...
@@ -116,3 +145,15 @@ The program should be updated to...
 Inform the user if their guess was too high or too low, 
 when they guess incorrectly.
 ---------------------Phase 6---------------------------*/
+
+/*-------------------Phase 7----------------------------
+The program should be updated to...
+
+Prompt the user for a difficulty level before they are 
+prompted to guess the number.
+The difficulty level should determine how many guesses 
+the user gets. The difficulty levels should be:
+Easy - this gives the user eight guesses.
+Medium - this gives the user six guesses.
+Hard - this gives the user four guesses.
+---------------------Phase 7---------------------------*/
