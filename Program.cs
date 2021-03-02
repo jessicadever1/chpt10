@@ -62,25 +62,42 @@ for (int numOfTries = 4; numOfTries > 0; numOfTries--)
     {
         Console.WriteLine("Nice try. But now you owe me your firstborn.");
     }
-    else if (Int32.Parse(input) != secretNum && numOfTries == 2)
+    else if (Int32.Parse(input) > secretNum && numOfTries == 2)
     {
-        Console.WriteLine("That was a great guess, but it wasn't the number I was thinking of!");
+        Console.WriteLine("That was a great guess, but it was too high!");
         Console.Write("You have ");
         //int counter = 3;
         Console.Write(numOfTries - 1);
         Console.WriteLine(" try left. You may try again now.");
         input = Console.ReadLine();
     }
-    else if (Int32.Parse(input) != secretNum)
+    else if (Int32.Parse(input) > secretNum)
     {
-        Console.WriteLine("That was a great guess, but it wasn't the number I was thinking of!");
+        Console.WriteLine("That was a great guess, but it was too high!");
         Console.Write("You have ");
         //int counter = 3;
         Console.Write(numOfTries - 1);
         Console.WriteLine(" tries left. You may try again now.");
         input = Console.ReadLine();
     }
-
+    else if (Int32.Parse(input) < secretNum && numOfTries == 2)
+    {
+        Console.WriteLine("That was a great guess, but it was too low!");
+        Console.Write("You have ");
+        //int counter = 3;
+        Console.Write(numOfTries - 1);
+        Console.WriteLine(" try left. You may try again now.");
+        input = Console.ReadLine();
+    }
+    else if (Int32.Parse(input) < secretNum)
+    {
+        Console.WriteLine("That was a great guess, but it was too low!");
+        Console.Write("You have ");
+        //int counter = 3;
+        Console.Write(numOfTries - 1);
+        Console.WriteLine(" tries left. You may try again now.");
+        input = Console.ReadLine();
+    }
 }
 
 
@@ -94,5 +111,8 @@ user has left.
 ---------------------Phase 5---------------------------*/
 
 /*-------------------Phase 6----------------------------
+The program should be updated to...
 
+Inform the user if their guess was too high or too low, 
+when they guess incorrectly.
 ---------------------Phase 6---------------------------*/
