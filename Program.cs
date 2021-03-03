@@ -1,32 +1,43 @@
 ﻿using System;
 
-Console.WriteLine("Welcome to my game! Would you like to play on Easy, Medium, or Hard mode?");
-string difficultyLevel = Console.ReadLine().ToLower();
+Main();
 
-while (difficultyLevel == "easy")
+void Main()
 {
-    Console.WriteLine("Okay! Easy mode, it is!");
-    PlayGame(8);
-    return;
-}
-while (difficultyLevel == "medium")
-{
-    Console.WriteLine("Okay! Medium mode, it is!");
-    PlayGame(6);
-    return;
-}
-while (difficultyLevel == "hard")
-{
-    Console.WriteLine("Okay! Hard mode, it is!");
-    PlayGame(4);
-    return;
-}
-while (difficultyLevel != "easy" || difficultyLevel != "medium" || difficultyLevel != "hard")
-{
-    Console.WriteLine("That was not an option. You're not invited anymore.");
-    return;
-}
+    Console.WriteLine("Welcome to my game! Would you like to play on Easy, Medium, Hard or Cheater mode?");
+    string difficultyLevel = Console.ReadLine().ToLower();
 
+    while (difficultyLevel == "easy")
+    {
+        Console.WriteLine("Okay! Easy mode, it is!");
+        PlayGame(8);
+        return;
+    }
+    while (difficultyLevel == "medium")
+    {
+        Console.WriteLine("Okay! Medium mode, it is!");
+        PlayGame(6);
+        return;
+    }
+    while (difficultyLevel == "hard")
+    {
+        Console.WriteLine("Okay! Hard mode, it is!");
+        PlayGame(4);
+        return;
+    }
+    while (difficultyLevel == "cheater")
+    {
+        Console.WriteLine("Well... I have questions, but okay...");
+        int infinity = Int32.MaxValue;
+        PlayGame(infinity);
+        return;
+    }
+    while (difficultyLevel != "easy" || difficultyLevel != "medium" || difficultyLevel != "hard")
+    {
+        Console.WriteLine("That was not an option. You're not invited anymore.");
+        return;
+    }
+}
 
 void PlayGame(int numOfTriesValue)
 {
@@ -43,6 +54,16 @@ void PlayGame(int numOfTriesValue)
         {
             Console.WriteLine("You guessed the number I was thinking of!");
             return;
+        }
+        else if (Int32.Parse(Input) > secretNum && numOfTriesValue > 8)
+        {
+            Console.WriteLine("Too High. Try again!");
+            Input = Console.ReadLine();
+        }
+        else if (Int32.Parse(Input) < secretNum && numOfTriesValue > 8)
+        {
+            Console.WriteLine("Too Low. Try again!");
+            Input = Console.ReadLine();
         }
         else if (Int32.Parse(Input) != secretNum && numOfTries == 1)
         {
@@ -82,6 +103,7 @@ void PlayGame(int numOfTriesValue)
             Console.WriteLine(" tries left. You may try again now.");
             Input = Console.ReadLine();
         }
+
     }
 }
 
@@ -155,3 +177,10 @@ Easy - this gives the user eight guesses.
 Medium - this gives the user six guesses.
 Hard - this gives the user four guesses.
 ---------------------Phase 7---------------------------*/
+/*-------------------Phase 8---------------------------
+The program should be updated to...
+
+Add a difficulty level of "Cheater" which will cause 
+the program to continue prompting the user until they 
+get the answer correct.
+---------------------Phase 8--------------------------*/
