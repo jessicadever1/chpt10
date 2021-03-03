@@ -6,19 +6,19 @@ string difficultyLevel = Console.ReadLine().ToLower();
 while (difficultyLevel == "easy")
 {
     Console.WriteLine("Okay! Easy mode, it is!");
-    PlayGame();
+    PlayGame(8);
     return;
 }
 while (difficultyLevel == "medium")
 {
     Console.WriteLine("Okay! Medium mode, it is!");
-    PlayGame();
+    PlayGame(6);
     return;
 }
 while (difficultyLevel == "hard")
 {
     Console.WriteLine("Okay! Hard mode, it is!");
-    PlayGame();
+    PlayGame(4);
     return;
 }
 while (difficultyLevel != "easy" || difficultyLevel != "medium" || difficultyLevel != "hard")
@@ -28,7 +28,7 @@ while (difficultyLevel != "easy" || difficultyLevel != "medium" || difficultyLev
 }
 
 
-void PlayGame()
+void PlayGame(int numOfTriesValue)
 {
     Console.WriteLine("Can you guess the number I'm thinking of?");
     Console.Write("Your best guess: ");
@@ -37,7 +37,7 @@ void PlayGame()
     int secretNum = rnd.Next(1, 101);
     string Input = Console.ReadLine();
 
-    for (int numOfTries = 4; numOfTries > 0; numOfTries--)
+    for (int numOfTries = numOfTriesValue; numOfTries > 0; numOfTries--)
     {
         if (Int32.Parse(Input) == secretNum)
         {
@@ -52,7 +52,6 @@ void PlayGame()
         {
             Console.WriteLine("That was a great guess, but it was too high!");
             Console.Write("You have ");
-            //int counter = 3;
             Console.Write(numOfTries - 1);
             Console.WriteLine(" try left. You may try again now.");
             Input = Console.ReadLine();
@@ -61,7 +60,6 @@ void PlayGame()
         {
             Console.WriteLine("That was a great guess, but it was too high!");
             Console.Write("You have ");
-            //int counter = 3;
             Console.Write(numOfTries - 1);
             Console.WriteLine(" tries left. You may try again now.");
             Input = Console.ReadLine();
