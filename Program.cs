@@ -4,6 +4,7 @@ Main();
 
 void Main()
 {
+    //Starts program with a question, waits for response, and converts response to lowercase
     Console.WriteLine("Welcome to my game! Would you like to play on Easy, Medium, Hard or Cheater mode?");
     string difficultyLevel = Console.ReadLine().ToLower();
 
@@ -32,7 +33,7 @@ void Main()
         PlayGame(infinity);
         return;
     }
-    while (difficultyLevel != "easy" || difficultyLevel != "medium" || difficultyLevel != "hard")
+    while (difficultyLevel != "easy" || difficultyLevel != "medium" || difficultyLevel != "hard" || difficultyLevel != "cheater")
     {
         Console.WriteLine("That was not an option. You're not invited anymore.");
         return;
